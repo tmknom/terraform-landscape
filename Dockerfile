@@ -20,7 +20,7 @@ ARG RUBY_VERSION=2.5.1-r2
 ARG MODULE_VERSION=0.2.1
 
 RUN apk add --no-cache ruby=${RUBY_VERSION} ruby-json=${RUBY_VERSION} && \
-    gem install --no-document terraform_landscape  -v ${MODULE_VERSION} && \
+    gem install --no-document terraform_landscape -v ${MODULE_VERSION} && \
     rm -rf ~/.gem
 
 WORKDIR /work
