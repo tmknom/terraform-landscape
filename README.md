@@ -7,7 +7,9 @@
 [![MicroBadger Layers](https://img.shields.io/microbadger/layers/tmknom/terraform-landscape.svg)](https://microbadger.com/images/tmknom/terraform-landscape)
 [![License](https://img.shields.io/github/license/tmknom/terraform-landscape.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Dockerfile template.
+Improve Terraform's plan output to be easier to read and understand based on Docker.
+
+This is [terraform-landscape](https://github.com/coinbase/terraform-landscape) wrapper.
 
 ## Requirements
 
@@ -15,9 +17,24 @@ Dockerfile template.
 
 ## Usage
 
+### Basic
+
 ```sh
-curl -fsSL https://raw.githubusercontent.com/tmknom/terraform-landscape/master/install | sh -s example
-cd example
+terraform plan | docker run --rm -i tmknom/terraform-landscape
+```
+
+### With tee
+
+```sh
+terraform plan | tee -a /dev/stderr | docker run --rm -i tmknom/terraform-landscape
+```
+
+### Help
+
+For details, refer to [coinbase/terraform-landscape](https://github.com/coinbase/terraform-landscape).
+
+```sh
+docker run --rm tmknom/terraform-landscape --help
 ```
 
 ## Makefile targets
